@@ -1,0 +1,53 @@
+<idea-plugin>
+    <id>com.zx.unique.plugin.id</id>
+    <name>post-detect</name>
+    <version>1.01</version>
+    <vendor email="xxxxxxxxx@qq.com" url="https://www.perfectoasis.top/">perfectoasis</vendor>
+
+    <description><![CDATA[
+        Detect if you are sitting with your head down and too close to the screen to develop good laptop habits.
+        The principle is to constantly detect whether the distance between the eyes of the face and the laptop camera is less than the set value.
+        Notebooks need python3, dependency packages ['mediapipe', 'opencv-python','PyObjC'] installed.
+        This plug-in environment is developed based on macOS, untested on windows and Linux
+
+        检测坐姿是否有低头并距离屏幕太近，以培养良好的笔记本使用习惯。原理是不停检测脸部双眼到笔记本摄像头的距离是否小于设定的值;
+        笔记本需要安装python3，依赖包['mediapipe', 'opencv-python','PyObjC'];
+        这个插件环境基于macOS开发,windows,Linux未测试
+    ]]></description>
+
+    <change-notes><![CDATA[
+      This is the first version.
+
+      这是第一个版本。这是第一个版本。这是第一个版本。这是第一个版本。这是第一个版本。
+    ]]>
+    </change-notes>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="PostDetectService"/>
+    </extensions>
+
+    <actions>
+        <group id="org.zx.TestGroup" text="PostDetect" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="action_switch_id"/>
+            <action id="post_detect_params" class="PostDetectParams" text="PostDetectParams" description="获取姿势检测输入参数">
+                <!--          <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+            </action>
+            <action id="action_switch_id" class="SwitchAction" text="post-detect-start" description="启动坐姿检测">
+                <!--          <add-to-group group-id="ToolsMenu" anchor="first"/>-->
+            </action>
+            <action id="post_detect_close" class="PostDetectCloseAction" text="PostDetectClose" description="坐姿检测关闭">
+
+            </action>
+        </group>
+
+
+    </actions>
+
+</idea-plugin>
